@@ -1,3 +1,4 @@
 class RoutingKey {
-  static const splashScreenKey = '/splash';
+  static const splashScreenKey = '/';
+  static const onBoardingScreenKey = '/on-boarding';
 }
