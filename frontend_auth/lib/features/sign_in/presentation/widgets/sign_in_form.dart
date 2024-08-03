@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:frontend_auth/core/routing/routing_key.dart';
-import 'package:frontend_auth/core/theme/app_color.dart';
 
 import '../../../../core/common/custom_elevated_button.dart';
 import '../../../../core/common/custom_text_form_field.dart';
+import '../../../../core/routing/routing_key.dart';
+import '../../../../core/theme/app_color.dart';
 
 class SignInForm extends StatefulWidget {
   const SignInForm({super.key});
@@ -68,7 +68,12 @@ class _SignInFormState extends State<SignInForm> {
             const Text('Remember Me'),
             Expanded(child: Container()),
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(
+                  context,
+                  RoutingKey.forgetPasswordScreenKey,
+                );
+              },
               child: Text(
                 'Forget Password',
                 style: Theme.of(context).textTheme.bodyMedium!.copyWith(

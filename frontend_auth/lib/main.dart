@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'core/routing/app_routing.dart';
-import 'features/change_password/presentation/screens/change_password_screen.dart';
+import 'features/forget_password/presentation/screens/forget_password_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRouting.onGenerateRoute,
-      home: const ChangePasswordScreen(),
+      home: const ForgetPasswordScreen(),
     );
   }
 }
