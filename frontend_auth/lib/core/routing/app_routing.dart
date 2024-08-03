@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../features/on_boarding/presentation/screens/on_boarding_screen.dart';
+import '../../features/sign_up/presentation/screens/sign_up_screen.dart';
 import '../../features/splash/presentation/screens/splash_screen.dart';
 import '../common/widgets.dart';
 import 'routing_key.dart';
@@ -17,6 +18,11 @@ class AppRouting {
         return MaterialPageRoute(
           settings: settings,
           builder: (BuildContext context) => const OnBoardingScreen(),
+        );
+      case RoutingKey.signUpScreenKey:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (BuildContext context) => const SignUpScreen(),
         );
       default:
         return MaterialPageRoute(

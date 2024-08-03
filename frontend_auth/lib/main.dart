@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'core/routing/app_routing.dart';
-import 'features/on_boarding/presentation/screens/on_boarding_screen.dart';
+import 'features/sign_up/presentation/screens/sign_up_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRouting.onGenerateRoute,
-      home: const OnBoardingScreen(),
+      home: const SignUpScreen(),
     );
   }
 }
