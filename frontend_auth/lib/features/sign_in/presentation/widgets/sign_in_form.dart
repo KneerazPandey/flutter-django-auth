@@ -5,17 +5,17 @@ import 'package:frontend_auth/core/theme/app_color.dart';
 import '../../../../core/common/custom_elevated_button.dart';
 import '../../../../core/common/custom_text_form_field.dart';
 
-class SignUpForm extends StatefulWidget {
-  const SignUpForm({super.key});
+class SignInForm extends StatefulWidget {
+  const SignInForm({super.key});
 
   @override
-  State<SignUpForm> createState() => _SignUpFormState();
+  State<SignInForm> createState() => _SignInFormState();
 }
 
-class _SignUpFormState extends State<SignUpForm> {
+class _SignInFormState extends State<SignInForm> {
   late TextEditingController _emailController;
   late TextEditingController _passwordController;
-  late TextEditingController _usernameController;
+  late bool _rememberMe;
 
   @override
   void initState() {
@@ -23,14 +23,13 @@ class _SignUpFormState extends State<SignUpForm> {
 
     _emailController = TextEditingController();
     _passwordController = TextEditingController();
-    _usernameController = TextEditingController();
+    _rememberMe = true;
   }
 
   @override
   void dispose() {
     _emailController.dispose();
     _passwordController.dispose();
-    _usernameController.dispose();
 
     super.dispose();
   }
@@ -41,12 +40,6 @@ class _SignUpFormState extends State<SignUpForm> {
 
     return Column(
       children: <Widget>[
-        CustomTextFormField(
-          controller: _usernameController,
-          labelText: 'Username',
-          hintText: 'Enter your username',
-        ),
-        SizedBox(height: size.height * 0.029),
         CustomTextFormField(
           controller: _emailController,
           labelText: 'Email',
@@ -59,7 +52,33 @@ class _SignUpFormState extends State<SignUpForm> {
           hintText: 'Enter your password',
           obscureText: true,
         ),
-        SizedBox(height: size.height * 0.11),
+        SizedBox(height: size.height * 0.013),
+        Row(
+          children: <Widget>[
+            Checkbox(
+              value: _rememberMe,
+              onChanged: (bool? value) {
+                if (value != null) {
+                  setState(() {
+                    _rememberMe = value;
+                  });
+                }
+              },
+            ),
+            const Text('Remember Me'),
+            Expanded(child: Container()),
+            TextButton(
+              onPressed: () {},
+              child: Text(
+                'Forget Password',
+                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                      color: const Color.fromARGB(255, 195, 107, 100),
+                    ),
+              ),
+            ),
+          ],
+        ),
+        SizedBox(height: size.height * 0.09),
         CustomElevatedButton(
           onPressed: () {},
           text: 'Register',
@@ -69,7 +88,7 @@ class _SignUpFormState extends State<SignUpForm> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Already have an account?',
+              "Don't have an account? ",
               style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                     color: Colors.grey,
                   ),
@@ -78,12 +97,12 @@ class _SignUpFormState extends State<SignUpForm> {
               onPressed: () {
                 Navigator.pushNamedAndRemoveUntil(
                   context,
-                  RoutingKey.signInScreenKey,
+                  RoutingKey.signUpScreenKey,
                   (route) => false,
                 );
               },
               child: Text(
-                'Login',
+                'Register',
                 style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                       color: AppColor.darkGreen,
                     ),
