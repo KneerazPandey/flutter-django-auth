@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../features/change_password/presentation/screens/change_password_screen.dart';
 import '../../features/on_boarding/presentation/screens/on_boarding_screen.dart';
 import '../../features/sign_in/presentation/screens/sign_in_screen.dart';
 import '../../features/sign_up/presentation/screens/sign_up_screen.dart';
@@ -29,6 +30,11 @@ class AppRouting {
         return MaterialPageRoute(
           settings: settings,
           builder: (BuildContext context) => const SignInScreen(),
+        );
+      case RoutingKey.changePasswordScreenKey:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (BuildContext context) => const ChangePasswordScreen(),
         );
 
       default:
